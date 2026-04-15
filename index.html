@@ -1,24 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中文學習平台 - A1至C2</title>
     <link rel="stylesheet" href="css/style.css">
-    <title>Chinese Learning Platform</title>
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Chinese Learning Platform</h1>
-    </header>
-    <main>
-        <section id="content">
-            <h2>Learning Content</h2>
-            <div id="learning-material"></div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2026 Chinese Learning Platform</p>
-    </footer>
+    <div class="container">
+        <!-- 頭部 -->
+        <header class="header">
+            <h1>🌏 中文學習平台</h1>
+            <p>從A1到C2，一步步提升你的中文水平</p>
+        </header>
+
+        <!-- 導航欄 -->
+        <nav class="nav">
+            <button class="nav-btn active" data-tab="levels">選擇程度</button>
+            <button class="nav-btn" data-tab="content">學習內容</button>
+            <button class="nav-btn" data-tab="vocabulary">詞彙表</button>
+            <button class="nav-btn" data-tab="practice">聽說讀寫</button>
+            <button class="nav-btn" data-tab="dictionary">字典查詢</button>
+        </nav>
+
+        <!-- 主內容區域 -->
+        <main class="main-content">
+            
+            <!-- 1. 程度選擇 -->
+            <section id="levels" class="tab-content active">
+                <h2>選擇你的中文程度</h2>
+                <div class="levels-grid">
+                    <div class="level-card" data-level="A1">
+                        <h3>A1</h3>
+                        <p>初級入門</p>
+                        <p class="level-desc">基礎日常用語</p>
+                    </div>
+                    <div class="level-card" data-level="A2">
+                        <h3>A2</h3>
+                        <p>初級進階</p>
+                        <p class="level-desc">簡單對話</p>
+                    </div>
+                    <div class="level-card" data-level="B1">
+                        <h3>B1</h3>
+                        <p>中級</p>
+                        <p class="level-desc">日常交流</p>
+                    </div>
+                    <div class="level-card" data-level="B2">
+                        <h3>B2</h3>
+                        <p>中高級</p>
+                        <p class="level-desc">流暢表達</p>
+                    </div>
+                    <div class="level-card" data-level="C1">
+                        <h3>C1</h3>
+                        <p>高級</p>
+                        <p class="level-desc">精確運用</p>
+                    </div>
+                    <div class="level-card" data-level="C2">
+                        <h3>C2</h3>
+                        <p>精通</p>
+                        <p class="level-desc">完全掌握</p>
+                    </div>
+                </div>
+                <div id="selected-level" class="selected-level"></div>
+            </section>
+
+            <!-- 2. 學習內容 -->
+            <section id="content" class="tab-content">
+                <h2>學習內容</h2>
+                <div class="content-controls">
+                    <label>程度：
+                        <select id="content-level">
+                            <option value="">-- 選擇程度 --</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                        </select>
+                    </label>
+                    <label>類型：
+                        <select id="content-type">
+                            <option value="">-- 選擇類型 --</option>
+                            <option value="short">短文 (~200字)</option>
+                            <option value="long">長篇文章 (~1000字)</option>
+                        </select>
+                    </label>
+                </div>
+                <div id="content-display" class="content-display"></div>
+            </section>
+
+            <!-- 3. 詞彙表 -->
+            <section id="vocabulary" class="tab-content">
+                <h2>詞彙表</h2>
+                <div class="vocab-controls">
+                    <label>程度：
+                        <select id="vocab-level">
+                            <option value="">-- 選擇程度 --</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                        </select>
+                    </label>
+                </div>
+                <div id="vocab-display" class="vocab-display">
+                    <p>選擇程度查看詞彙表</p>
+                </div>
+            </section>
+
+            <!-- 4. 聽說讀寫練習 -->
+            <section id="practice" class="tab-content">
+                <h2>聽說讀寫練習</h2>
+                <div class="practice-controls">
+                    <label>程度：
+                        <select id="practice-level">
+                            <option value="">-- 選擇程度 --</option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B1">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                        </select>
+                    </label>
+                </div>
+                <div id="practice-display" class="practice-display">
+                    <p>選擇程度查看練習</p>
+                </div>
+            </section>
+
+            <!-- 5. 字典查詢 -->
+            <section id="dictionary" class="tab-content">
+                <h2>字典查詢</h2>
+                <div class="dictionary-controls">
+                    <input type="text" id="dict-search" placeholder="輸入中文詞語或單字..." maxlength="20">
+                    <button id="dict-search-btn">查詢</button>
+                </div>
+                <div id="dict-result" class="dict-result">
+                    <p>輸入詞語或單字進行查詢</p>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 字典浮窗 -->
+        <div id="dict-popup" class="dict-popup hidden">
+            <div class="dict-popup-content">
+                <span class="close-btn">&times;</span>
+                <div id="dict-popup-result"></div>
+            </div>
+        </div>
+
+        <!-- 加載指示器 -->
+        <div id="loading" class="loading hidden">
+            <p>加載中...</p>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/dictionary.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
